@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noah's Portoflio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/granim@2.0.0/dist/granim.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="logo">nkn</div>
+        <nav>
+            <ul>
+                <li><a href="#about">about me</a></li>
+                <li><a href="#projects">web projects</a></li>
+                <li><a href="#photography">photography</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#experimental">experimental</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="intro">
+            <h1 class="ml11">
+                <span class="text-wrapper">
+                    <span class="line line1"></span>
+                    <span class="letters">HI! I'm <span class="name">Noah</span>, new media artist from San Joaquin Valley, CA.</span>
+                </span>
+            </h1>
+        </section>        
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var textWrapper = document.querySelector('.ml11 .letters');
+
+    // Recursively wrap text nodes in spans, preserving elements like .name
+    function wrapTextWithSpans(element) {
+        Array.from(element.childNodes).forEach(child => {
+            if (child.nodeType === 3) { // Text node
+                let wrappedText = child.nodeValue.replace(/\S/g, "<span class='letter'>$&</span>");
+                let fragment = document.createRange().createContextualFragment(wrappedText);
+                child.replaceWith(fragment);
+            } else if (child.nodeType === 1) { // Element node
+                wrapTextWithSpans(child); // Recurse for element nodes
+            }
+        });
+    }
+
+    wrapTextWithSpans(textWrapper);
+
+    anime.timeline({loop: false})
+    .add({
+        targets: '.ml11 .line',
+        scaleY: [0,1],
+        opacity: [0.5,1],
+        easing: "easeOutExpo",
+        duration: 700
+    })
+    .add({
+        targets: '.ml11 .line',
+        translateX: [0, textWrapper.getBoundingClientRect().width + 10],
+        easing: "easeOutExpo",
+        duration: 1500,
+        delay: 0
+    })
+    .add({
+        targets: '.ml11 .letter',
+        opacity: [0,1],
+        easing: "easeOutExpo",
+        duration: 1000,
+        offset: '-=1500', // Start this animation 1500ms earlier
+        delay: (el, i) => 15.5 * (i + 1) // Adjust the delay as necessary
+    })
+    .add({
+        targets: '.ml11',
+        opacity: 1,
+        duration: 1000,
+        easing: "easeOutExpo",
+        delay: 0
+    });
+
+});
+</script>
+</body>
+</html>
