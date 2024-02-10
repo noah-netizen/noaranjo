@@ -116,8 +116,9 @@ nav a:hover::after {
 }
 
 .bio-content p {
-    margin: 0 49px 0 0; /* Adjust paragraph spacing as needed */
+    margin: 30px 49px 0 0; /* Adjust paragraph spacing as needed */
     font-size: x-large;
     line-height: 1.5;
+    font-family: 'Inter', sans-serif;
 }
 
