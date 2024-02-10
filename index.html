@@ -9,12 +9,21 @@
     <script src="https://cdn.jsdelivr.net/npm/granim@2.0.0/dist/granim.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@700&display=swap" rel="stylesheet">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <div id="logo">nkn</div>
+        <div id="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 0 800 500" fill="#597E52"> <!-- Adjust viewBox as needed -->
+                <!-- Path for "n" -->
+                <path class="cls-1" d="M62.11,0c11.27,0,21.75,2.8,31.45,8.41s17.36,13.24,22.99,22.89c5.63,9.65,8.45,20.08,8.45,31.3s-2.82,21.58-8.45,31.2c-5.63,9.62-13.3,17.23-22.99,22.82s-20.18,8.38-31.45,8.38c-8.48,0-16.47-1.61-23.97-4.83-7.5-3.22-14.14-7.72-19.89-13.5-5.76-5.78-10.24-12.45-13.44-19.99-3.2-7.54-4.8-15.57-4.8-24.08,0-11.22,2.78-21.65,8.35-31.3,5.56-9.65,13.13-17.28,22.71-22.89C40.63,2.8,50.98,0,62.11,0Z"/>
+                <!-- Path for "k" -->
+                <path class="cls-1" d="M324.22.49c7.81,8.4,14,17.95,18.55,28.66,4.56,10.71,6.84,21.86,6.84,33.45s-2.28,22.74-6.84,33.45c-4.56,10.71-10.74,20.26-18.55,28.66-5.34,5.27-11.25,9.8-17.72,13.57-6.48,3.78-13.53,6.69-21.14,8.74s-15.37,3.08-23.24,3.08-15.62-1.03-23.24-3.08-14.66-4.96-21.14-8.74c-6.48-3.77-12.39-8.3-17.72-13.57l8.79-8.79c14.65,14.45,32.42,21.68,53.32,21.68s38.67-7.23,53.32-21.68c6.71-7.16,12-15.35,15.87-24.56,3.87-9.21,5.81-18.8,5.81-28.76s-1.92-19.51-5.76-28.66c-3.84-9.15-9.15-17.37-15.92-24.66l8.79-8.79ZM256.93,57.42l5.18,5.18-5.18,5.08v-10.25Z"/>
+                <!-- Path for second "n" -->
+                <path class="cls-1" d="M462.11,0c11.27,0,21.75,2.8,31.45,8.41s17.36,13.24,22.99,22.89c5.63,9.65,8.45,20.08,8.45,31.3s-2.82,21.58-8.45,31.2c-5.63,9.62-13.3,17.23-22.99,22.82s-20.18,8.38-31.45,8.38c-8.48,0-16.47-1.61-23.97-4.83-7.5-3.22-14.14-7.72-19.89-13.5-5.76-5.78-10.24-12.45-13.44-19.99-3.2-7.54-4.8-15.57-4.8-24.08,0-11.22,2.78-21.65,8.34-31.3,5.56-9.65,13.13-17.28,22.71-22.89,9.58-5.61,19.93-8.41,31.05-8.41Z"/>
+            </svg> 
+        </div>
         <nav>
             <ul>
                 <li><a href="#about">about me</a></li>
@@ -73,7 +82,7 @@
     .add({
         targets: '.ml11 .letter',
         opacity: [0,1],
-        easing: "easeOutExpo",
+        easing: "easeOutQuint",
         duration: 1000,
         offset: '-=1500', // Start this animation 1500ms earlier
         delay: (el, i) => 15.5 * (i + 1) // Adjust the delay as necessary
@@ -82,10 +91,58 @@
         targets: '.ml11',
         opacity: 1,
         duration: 1000,
-        easing: "easeOutExpo",
+        easing: "easeOutQuint",
         delay: 0
+    })
+
+    // hide the line after animation
+    .add({ // hide line
+        targets: '.ml11 .line',
+        opacity: 0,
+        duration: 500, // Adjust duration as needed
+        easing: "easeInOutExpo",
+        offset: '-=1600', // Start this animation 1500ms earlier
+    })
+
+    .add({ // show line
+        targets: '.ml11 .line',
+        opacity: 1,
+        duration: 300,
+        easing: "easeInOutExpo",
+        delay: 0,
+        offset: '-=1000'
+    })
+
+    .add({ // hide line
+        targets: '.ml11 .line',
+        opacity: 0,
+        duration: 100, // Adjust duration as needed
+        easing: "easeInOutExpo",
+    });
+});
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    // Blinking animation for the 1st and 3rd paths
+    anime({
+        targets: ['#logo path.cls-1:nth-child(1)', '#logo path.cls-1:nth-child(3)'],
+        opacity: [
+            {value: 0, duration: 200},
+            {value: 1, duration: 200,}
+        ],
+        loop: false,
+        easing: 'linear',
+        delay: function(el, i) { return i * 250; }, // Offset delay for a more natural blink
     });
 
+    // Spinning animation for the 2nd path
+    anime({
+        targets: '#logo path.cls-1:nth-child(2)',
+        rotate: '1turn',
+        duration: 1500,
+        loop: false,
+        easing: 'easeInOutSine',
+    });
 });
 </script>
 </body>
