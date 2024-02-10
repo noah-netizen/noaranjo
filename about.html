@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/granim@2.0.0/dist/granim.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <a href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -55 800 500" fill="#597E52"> <!-- Adjust viewBox as needed -->
+                <!-- Path for "n" -->
+                <circle cx="62" cy="40" r="80" class="cls-1"/>
+                <!-- Path for "k" -->
+                <path class="cls-1" d="M324.22.49c7.81,8.4,14,17.95,18.55,28.66,4.56,10.71,6.84,21.86,6.84,33.45s-2.28,22.74-6.84,33.45c-4.56,10.71-10.74,20.26-18.55,28.66-5.34,5.27-11.25,9.8-17.72,13.57-6.48,3.78-13.53,6.69-21.14,8.74s-15.37,3.08-23.24,3.08-15.62-1.03-23.24-3.08-14.66-4.96-21.14-8.74c-6.48-3.77-12.39-8.3-17.72-13.57l8.79-8.79c14.65,14.45,32.42,21.68,53.32,21.68s38.67-7.23,53.32-21.68c6.71-7.16,12-15.35,15.87-24.56,3.87-9.21,5.81-18.8,5.81-28.76s-1.92-19.51-5.76-28.66c-3.84-9.15-9.15-17.37-15.92-24.66l8.79-8.79ZM256.93,57.42l5.18,5.18-5.18,5.08v-10.25Z"/>
+                <!-- Path for second "n" -->
+                <circle cx="500" cy="40" r="80" class="cls-1"/>
+            </svg> 
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="about.html">about me</a></li>
+                <li><a href="#projects">web projects</a></li>
+                <li><a href="#photography">photography</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#experimental">experimental</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-me">
+    <div class="container">
+        <img id="headshot-alt" src="svg resources\TIF Final School Glitch png.png" class="headshot">
+        <div class="bio-content">
+            <h2 id="about-me">About Me</h2>
+            <p>Noah Naranjo is a new media artist based in California's Central Valley. Initially self taught in basic digital arts, he later obtained formal education from the University of Chicago in Media Arts and Design where he expanded his mediums and honed his creative processes. Noah's focus in glitch art is not just a departure from traditional mediums, but a testament to the beauty of digital (and physical) imperfections. 
+
+                <br> <br>Naranjo's work embraces flaws and errors not as mistakes, but as opportunities to uncover a hidden beauty in the aberrations. It is in those “mistakes” that he finds raw, unfiltered expressions of creativity. He hopes his work allows viewers to experience the convergence of the tactile and abstract world, where traditional notions of beauty are dismantled and redefined through the lens of technology. 
+                
+                <br> <br>When not creating art, Noah is a community advocate for the City of Avenal where he currently resides. He believes community to be his biggest motivator and inspiration for his work, and hopes to use his art and education to bring positive growth to his hometown. 
+                </p>
+        </div>
+    </div>
+</section>
+
+    <script>
+        function blinkAnimation() { 
+            anime({
+                targets: ['#logo circle:nth-child(1)', '#logo circle:nth-child(3)'],
+                opacity: [
+                    {value: 0, duration: 400},
+                    {value: 1, duration: 400}
+                ],
+                easing: 'linear',
+                delay: function(el, i) { return i * 250; }, // Offset delay for a more natural blink
+                complete: function(anim) {
+                    // Wait for 3 seconds (3000 milliseconds) before starting the next animation loop
+                    setTimeout(blinkAnimation, 5000);
+                }
+            });
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            blinkAnimation(); // Call the blinkAnimation function
+            // Spinning animation for the 2nd path
+            anime({
+                targets: '#logo path.cls-1:nth-child(2)',
+                rotate: '1turn',
+                duration: 2000,
+                loop: false,
+                easing: 'easeInOutBack',
+            });
+        });
+    </script>
+</body>
+</html>

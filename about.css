@@ -1,0 +1,123 @@
+/* Reset some basic elements */
+body, h1, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body, html {
+    height: 100%; /* Ensure full height */
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #FFFFEC;
+}
+
+header {
+    background-color: #FFFFEC;
+    color: #597E52;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+}
+
+#logo {
+    width: 300px;
+    height: 30px;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows nav items to wrap */
+    justify-content: flex-end; /* Align items to the right */
+    padding: 40px 0 0 0; /* Removes default padding */
+    font-weight: 450;
+    font-family: 'Inter', sans-serif;
+    list-style: none;
+}
+
+nav li {
+    margin: 5px 10px; /* Adds a little space around each nav item */
+}
+
+nav a {
+    color: #597E52;
+    text-decoration: none;
+    font-size: 20px;
+    position: relative;
+    font-style: italic;
+    margin: 20px;
+    overflow: hidden;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #C6A969;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0); /* Start with the element scaled to 0 */
+    transform-origin: left center; /* Scale from the left */
+    transition: transform 0.2s ease-out; /* Transition effect for the transform */
+}
+
+nav a:hover::after {
+    transform: scaleX(1); /* Scale to full width on hover */
+}
+
+/* SECTION FOR RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    nav a {
+        font-size: 18px; /* Smaller font size on smaller screens */
+        margin: 10px 5px; /* Adjust margin for smaller screen */
+    }
+}
+
+@media (max-width: 768px) {
+    #intro p {
+        font-size: 60px; /* Reduce font size on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #intro p {
+        font-size: 40px; /* Even smaller font size for very small screens */
+    }
+}
+
+.about-me .container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 20px; /* Spacing between the image and text */
+    padding: 100px 0; /* Add some padding above and below the content */
+}
+
+#about-me {
+    color: #C6A969;
+    font-size: 6em;
+}
+
+.headshot {
+    width: 400px; /* Adjust based on your preference */
+    height: 400px; /* Adjust to maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the space without distortion */
+    border-radius: 50%; /* Optional: Creates a circular headshot */
+    margin-right: 50px; /* Space between the headshot and the bio */
+    margin-left: 50px;
+}
+
+.bio-content h2 {
+    margin: 35px 0 0 0; /* Adjust spacing around the About Me title */
+}
+
+.bio-content p {
+    margin: 0 49px 0 0; /* Adjust paragraph spacing as needed */
+    font-size: x-large;
+    line-height: 1.5;
+}
+
