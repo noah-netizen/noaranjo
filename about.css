@@ -80,13 +80,13 @@ nav a:hover::after {
 
 @media (max-width: 768px) {
     #intro p {
-        font-size: 60px; /* Reduce font size on smaller screens */
+        font-size: 10px; /* Reduce font size on smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     #intro p {
-        font-size: 40px; /* Even smaller font size for very small screens */
+        font-size: 10px; /* Even smaller font size for very small screens */
     }
 }
 
@@ -99,12 +99,12 @@ nav a:hover::after {
 
 #about-me {
     color: #C6A969;
-    font-size: 6em;
+    font-size: 8vh;
 }
 
 .headshot {
-    width: 400px; /* Adjust based on your preference */
-    height: 400px; /* Adjust to maintain aspect ratio */
+    width: 35vh; /* Adjust based on your preference */
+    height: 35vh; /* Adjust to maintain aspect ratio */
     object-fit: cover; /* Ensure the image covers the space without distortion */
     border-radius: 50%; /* Optional: Creates a circular headshot */
     margin-right: 50px; /* Space between the headshot and the bio */
@@ -117,8 +117,32 @@ nav a:hover::after {
 
 .bio-content p {
     margin: 30px 49px 0 0; /* Adjust paragraph spacing as needed */
-    font-size: x-large;
+    font-size: 2vh;
     line-height: 1.5;
     font-family: 'Inter', sans-serif;
 }
 
+footer {
+    padding: 10px;
+    text-align: right; /* Aligns the content to the right */
+    background-color: #FFFFEC; /* Example background color */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-media a {
+    display: inline-block;
+    margin-right: 20px; /* Adjusts the right padding */
+}
+
+.social-media svg {
+    height: 70px; /* Adjust the size of the logo */
+    width: auto;
+}
+
+#linkedin {
+    height: 47px;
+    padding: 0 60px 12px 0;
+}
