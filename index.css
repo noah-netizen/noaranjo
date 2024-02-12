@@ -1,0 +1,191 @@
+/* Reset some basic elements */
+body, h2, h3, p, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body, html {
+    height: 100%; /* Ensure full height */
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #FFFFEC;
+}
+
+header {
+    background-color: #FFFFEC;
+    color: #597E52;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+}
+
+#logo {
+    flex-shrink: 0;
+    width: 18vw;
+    height: 2vw;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows nav items to wrap */
+    justify-content: flex-end; /* Align items to the right */
+    padding: 40px 0 0 0; /* Removes default padding */
+    font-weight: 450;
+    font-family: 'Inter', sans-serif;
+    list-style: none;
+}
+
+nav li {
+    margin: 5px 10px; /* Adds a little space around each nav item */
+}
+
+/* SECTION FOR RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    nav a {
+        font-size: 18px; /* Smaller font size on smaller screens */
+        margin: 10px 5px; /* Adjust margin for smaller screen */
+    }
+}
+
+@media (max-width: 768px) {
+    #intro p {
+        font-size: 10px; /* Reduce font size on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #intro p {
+        font-size: 10px; /* Even smaller font size for very small screens */
+    }
+}
+
+nav a {
+    color: #597E52;
+    text-decoration: none;
+    font-size: 1.2vw;
+    position: relative;
+    font-style: italic;
+    margin: 20px;
+    overflow: hidden;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #C6A969;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0); /* Start with the element scaled to 0 */
+    transform-origin: left center; /* Scale from the left */
+    transition: transform 0.2s ease-out; /* Transition effect for the transform */
+}
+
+nav a:hover::after {
+    transform: scaleX(1); /* Scale to full width on hover */
+}
+
+#intro p {
+    color: #C6A969;
+    font-size: 6vw;
+    font-weight: 700;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    padding: 200px 100px;
+}
+
+#intro {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 50vh; /* Full height */
+    text-align: center;
+    padding: 0 20px; /* Add padding to prevent text touching the edges */
+}
+
+#name {
+    color: #597E52;
+}
+
+/* Fullscreen canvas */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure canvas stays in the background */
+}
+
+/* Animation */
+.ml11 {
+    font-weight: 700;
+    font-size: 3.3vw; /* Adjust this value as needed */
+    color: #C6A969; /* Use your preferred text color */
+  }
+
+.ml11 .letters .name {
+    color: #597E52; /* Your chosen shade of green */
+    font-size: 3.3vw;
+}
+  
+.ml11 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+  }
+  
+.ml11 .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #C6A969; /* Use your preferred line color */
+    transform-origin: 0 50%;
+  }
+  
+.ml11 .line1 { 
+    top: 0; 
+    left: 0;
+  }
+  
+.ml11 .letters {
+    display: inline-block;
+    line-height: 1em;
+  }
+
+/* Footer */
+footer {
+    padding: 10px;
+    text-align: right; /* Aligns the content to the right */
+    background-color: #FFFFEC; /* Example background color */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-media a {
+    display: inline-block;
+    margin-right: 20px; /* Adjusts the right padding */
+}
+
+.social-media svg {
+    height: 70px; /* Adjust the size of the logo */
+    width: auto;
+}
+
+#linkedin {
+    height: 47px;
+    padding: 0 60px 12px 0;
+}
