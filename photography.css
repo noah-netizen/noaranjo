@@ -29,9 +29,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px; /* Left and right padding */
+    padding: 0 20px;
     height: 70px;
-    font-size: 1vw;
 }
 
 .photo-gallery {
@@ -52,8 +51,9 @@ header {
 
 
 #logo {
-    width: 300px;
-    height: 30px;
+    flex-shrink: 0;
+    width: 18vw;
+    height: 2vw;
 }
 
 nav ul {
@@ -64,6 +64,7 @@ nav ul {
     padding: 40px 0 0 0; /* Removes default padding */
     font-weight: 450;
     font-family: 'Inter', sans-serif;
+    list-style: none;
 }
 
 nav li {
@@ -74,36 +75,19 @@ nav li {
 @media (max-width: 768px) {
     nav a {
         font-size: 18px; /* Smaller font size on smaller screens */
-        margin: 5px; /* Adjust margin for smaller screen */
+        margin: 10px 5px; /* Adjust margin for smaller screen */
     }
-    nav ul {
-        padding: 20px 0; /* Adjusted padding for smaller screens */
-        gap: 10px; /* Smaller gap between items for narrower screens */
-    }
-    #logo {
-        width: 250px; /* Adjust logo size for smaller screens */
-        height: 25px;
-    }
-    header {
-        flex-direction: column; /* Stack logo and nav vertically on smaller screens */
-        align-items: flex-start; /* Align items to the start of the container */
-    }
-    nav ul {
-        flex-direction: row; /* Ensure nav items are in a row */
-        flex-wrap: nowrap; /* Prevent wrapping of nav items */
-        justify-content: center; /* Center the navigation items */
-        overflow-x: auto; /* Enable horizontal scrolling if nav items overflow */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on webkit browsers */
+}
+
+@media (max-width: 768px) {
+    #intro p {
+        font-size: 10px; /* Reduce font size on smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     #intro p {
-        font-size: 40px; /* Reduce font size on smaller screens */
-    }
-
-    nav ul {
-        padding: 10px 0; /* Adjust padding to ensure visibility at the top */
+        font-size: 10px; /* Even smaller font size for very small screens */
     }
 }
 
@@ -113,7 +97,7 @@ nav a {
     font-size: 1.2vw;
     position: relative;
     font-style: italic;
-    margin: 1vw;
+    margin: 20px;
     overflow: hidden;
 }
 
