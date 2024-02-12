@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noah's Portoflio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/granim@2.0.0/dist/granim.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <link rel="stylesheet" href="web.css">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -55 800 500" fill="#597E52"> <!-- Adjust viewBox as needed -->
+                <!-- Path for "n" -->
+                <a href="index.html"><circle cx="62" cy="40" r="80" class="cls-1"/></a>
+                <!-- Path for "k" -->
+                <path class="cls-1" d="M324.22.49c7.81,8.4,14,17.95,18.55,28.66,4.56,10.71,6.84,21.86,6.84,33.45s-2.28,22.74-6.84,33.45c-4.56,10.71-10.74,20.26-18.55,28.66-5.34,5.27-11.25,9.8-17.72,13.57-6.48,3.78-13.53,6.69-21.14,8.74s-15.37,3.08-23.24,3.08-15.62-1.03-23.24-3.08-14.66-4.96-21.14-8.74c-6.48-3.77-12.39-8.3-17.72-13.57l8.79-8.79c14.65,14.45,32.42,21.68,53.32,21.68s38.67-7.23,53.32-21.68c6.71-7.16,12-15.35,15.87-24.56,3.87-9.21,5.81-18.8,5.81-28.76s-1.92-19.51-5.76-28.66c-3.84-9.15-9.15-17.37-15.92-24.66l8.79-8.79ZM256.93,57.42l5.18,5.18-5.18,5.08v-10.25Z"/>
+                <!-- Path for second "n" -->
+                <a href="index.html"><circle cx="500" cy="40" r="80" class="cls-1"/></a>
+            </svg>
+            
+        </div>
+        <nav>
+            <ul>
+                <li><a href="about.html">about me</a></li>
+                <li><a href="#projects">web projects</a></li>
+                <li><a href="photography.html">photography</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#experimental">experimental</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Web Projects</h1>
+    <div class="project-row" id="project1">
+        <div class="project-photo">
+            <img src="web photos\bhgstart.png" alt="Project Cover" class="cover-image" />
+            <!-- Hidden album photos container -->
+            <div class="photo-album">
+                <img src="web photos\bhgstart.png" alt="Project Start Page"/>
+                <img src="web photos\bhg.png" alt="Project Game Play" />
+                <img src="web photos\bghlose.png" alt="Project Lose Screen" />
+                <!-- More photos as needed -->
+            </div>
+        </div>
+        <div class="project-description">
+            <p id="publish"><strong>Published Date:</strong> March 2023</p>
+            <p><a href="https://noah-netizen.github.io/TheBrokenHeartsFinal/" target="_blank">The Broken Hearts Game</a></p>
+            <p>One of my favorite projects was “The Broken Hearts” game and was one of my first introductions into broken/glitchy art. This was a small project I made for a creative coding class, and was pretty special for a few reasons: it was my first time making a game, my first time using primarily Javascript for a project, and my first time using a JS library (P5.js in this case). It's definitely not perfect, but it's a cute little game that means a lot to me.</p>
+        </div>
+    </div>
+    <div class="project-row" id="project2">
+        <div class="project-photo">
+            <img src="web photos\meme.png" alt="Project Cover" class="cover-image" />
+            <!-- Hidden album photos container -->
+            <div class="photo-album">
+                <img src="web photos\meme.png" alt="Project Start Page"/>
+                <!-- More photos as needed -->
+            </div>
+        </div>
+        <div class="project-description">
+            <p id="publish"><strong>Published Date:</strong>December 2022</p>
+            <p><a href="https://noah-netizen.github.io/memeification/" target="_blank">Meme Generator</a></p>
+            <p>This was my first web-based project where I learned how to integrate APIs I found on github into my own. I'm not the most proud of this project visually, but something about it always makes me laugh. Pro tip: turn up your audio if you haven't already on the website.</p>
+        </div>
+    </div>
+    <div class="project-row" id="project3">
+        <div class="project-photo">
+            <img src="web photos\sansabout.png" alt="Project Cover" class="cover-image" />
+            <!-- Hidden album photos container -->
+            <div class="photo-album">
+                <img src="web photos\sansabout.png" alt="Project Start Page"/>
+                <img src="web photos\sanshead.png" alt="Project Start Page"/>
+                <img src="web photos\sanscontact.png" alt="Project Start Page"/>
+                <!-- More photos as needed -->
+            </div>
+        </div>
+        <div class="project-description">
+            <p id="publish"><strong>Published Date:</strong>December 2022</p>
+            <p><a href="https://noah-netizen.github.io/SansPortfolio/" target="_blank">Sans' Portfolio</a></p>
+            <p>This was my first web-based project where I learned how to integrate APIs I found on github into my own. I'm not the most proud of this project visually, but something about it always makes me laugh. Pro tip: turn up your audio if you haven't already on the website.</p>
+        </div>
+    </div>
+
+<script> // JavaScript for the blinking animation
+    function blinkAnimation() { 
+        anime({
+            targets: ['#logo circle:nth-child(1)', '#logo circle:nth-child(3)'],
+            opacity: [
+                {value: 0, duration: 400},
+                {value: 1, duration: 400}
+            ],
+            easing: 'linear',
+            delay: function(el, i) { return i * 250; }, // Offset delay for a more natural blink
+            complete: function(anim) {
+                // Wait for 3 seconds (3000 milliseconds) before starting the next animation loop
+                setTimeout(blinkAnimation, 4000);
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        blinkAnimation(); // Call the blinkAnimation function
+        // Spinning animation for the 2nd path
+        anime({
+            targets: '#logo path.cls-1:nth-child(2)',
+            rotate: '1turn',
+            duration: 2000,
+            loop: false,
+            easing: 'easeInOutBack',
+        });
+    });
+</script>
+<script> // JavaScript for the photo album
+    document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.cover-image').forEach(item => {
+        item.addEventListener('click', function() {
+            this.nextElementSibling.style.display = 'flex'; // Show the photo album
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+    });
+
+    document.querySelectorAll('.photo-album').forEach(item => {
+        item.addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none'; // Hide the photo album
+                document.body.style.overflow = ''; // Re-enable scrolling
+            }
+        });
+    });
+});
+</script>
+<footer>
+    <div class="social-media">
+        <!-- Instagram Logo SVG -->
+        <a href="https://www.instagram.com/the_real_boah" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="50" width="50" viewBox="-19.5036 -32.49725 169.0312 194.9835">
+                <defs>
+                    <radialGradient fy="578.088" fx="158.429" gradientTransform="matrix(0 -1.98198 1.8439 0 -1031.399 454.004)" gradientUnits="userSpaceOnUse" xlink:href="#a" r="65" cy="578.088" cx="158.429" id="c"/>
+                    <radialGradient fy="473.455" fx="147.694" gradientTransform="matrix(.17394 .86872 -3.5818 .71718 1648.351 -458.493)" gradientUnits="userSpaceOnUse" xlink:href="#b" r="65" cy="473.455" cx="147.694" id="d"/>
+                    <linearGradient id="b"><stop stop-color="#C6A969" offset="0"/><stop offset=".128" stop-color="#C6A969"/><stop stop-opacity="0" stop-color="#C6A969" offset="1"/></linearGradient>
+                    <linearGradient id="a"><stop stop-color="#C6A969" offset="0"/><stop stop-color="#C6A969" offset=".1"/><stop stop-color="#C6A969" offset=".5"/><stop stop-color="#597E52" offset="1"/></linearGradient>
+                </defs>
+                <path d="M65.033 0C37.891 0 29.953.028 28.41.156c-5.57.463-9.036 1.34-12.812 3.22-2.91 1.445-5.205 3.12-7.47 5.468-4.125 4.282-6.625 9.55-7.53 15.812-.44 3.04-.568 3.66-.594 19.188-.01 5.176 0 11.988 0 21.125 0 27.12.03 35.05.16 36.59.45 5.42 1.3 8.83 3.1 12.56 3.44 7.14 10.01 12.5 17.75 14.5 2.68.69 5.64 1.07 9.44 1.25 1.61.07 18.02.12 34.44.12 16.42 0 32.84-.02 34.41-.1 4.4-.207 6.955-.55 9.78-1.28a27.22 27.22 0 0017.75-14.53c1.765-3.64 2.66-7.18 3.065-12.317.088-1.12.125-18.977.125-36.81 0-17.836-.04-35.66-.128-36.78-.41-5.22-1.305-8.73-3.127-12.44-1.495-3.037-3.155-5.305-5.565-7.624-4.3-4.108-9.56-6.608-15.829-7.512C102.338.157 101.733.027 86.193 0z" fill="url(#c)"/>
+                <path d="M65.033 0C37.891 0 29.953.028 28.41.156c-5.57.463-9.036 1.34-12.812 3.22-2.91 1.445-5.205 3.12-7.47 5.468-4.125 4.282-6.625 9.55-7.53 15.812-.44 3.04-.568 3.66-.594 19.188-.01 5.176 0 11.988 0 21.125 0 27.12.03 35.05.16 36.59.45 5.42 1.3 8.83 3.1 12.56 3.44 7.14 10.01 12.5 17.75 14.5 2.68.69 5.64 1.07 9.44 1.25 1.61.07 18.02.12 34.44.12 16.42 0 32.84-.02 34.41-.1 4.4-.207 6.955-.55 9.78-1.28a27.22 27.22 0 0017.75-14.53c1.765-3.64 2.66-7.18 3.065-12.317.088-1.12.125-18.977.125-36.81 0-17.836-.04-35.66-.128-36.78-.41-5.22-1.305-8.73-3.127-12.44-1.495-3.037-3.155-5.305-5.565-7.624-4.3-4.108-9.56-6.608-15.829-7.512C102.338.157 101.733.027 86.193 0z" fill="url(#d)"/>
+                <path d="M65.003 17c-13.036 0-14.672.057-19.792.29-5.11.234-8.598 1.043-11.65 2.23-3.157 1.226-5.835 2.866-8.503 5.535-2.67 2.668-4.31 5.346-5.54 8.502-1.19 3.053-2 6.542-2.23 11.65C17.06 50.327 17 51.964 17 65s.058 14.667.29 19.787c.235 5.11 1.044 8.598 2.23 11.65 1.227 3.157 2.867 5.835 5.536 8.503 2.667 2.67 5.345 4.314 8.5 5.54 3.054 1.187 6.543 1.996 11.652 2.23 5.12.233 6.755.29 19.79.29 13.037 0 14.668-.057 19.788-.29 5.11-.234 8.602-1.043 11.656-2.23 3.156-1.226 5.83-2.87 8.497-5.54 2.67-2.668 4.31-5.346 5.54-8.502 1.18-3.053 1.99-6.542 2.23-11.65.23-5.12.29-6.752.29-19.788 0-13.036-.06-14.672-.29-19.792-.24-5.11-1.05-8.598-2.23-11.65-1.23-3.157-2.87-5.835-5.54-8.503-2.67-2.67-5.34-4.31-8.5-5.535-3.06-1.187-6.55-1.996-11.66-2.23-5.12-.233-6.75-.29-19.79-.29zm-4.306 8.65c1.278-.002 2.704 0 4.306 0 12.816 0 14.335.046 19.396.276 4.68.214 7.22.996 8.912 1.653 2.24.87 3.837 1.91 5.516 3.59 1.68 1.68 2.72 3.28 3.592 5.52.657 1.69 1.44 4.23 1.653 8.91.23 5.06.28 6.58.28 19.39s-.05 14.33-.28 19.39c-.214 4.68-.996 7.22-1.653 8.91-.87 2.24-1.912 3.835-3.592 5.514-1.68 1.68-3.275 2.72-5.516 3.59-1.69.66-4.232 1.44-8.912 1.654-5.06.23-6.58.28-19.396.28-12.817 0-14.336-.05-19.396-.28-4.68-.216-7.22-.998-8.913-1.655-2.24-.87-3.84-1.91-5.52-3.59-1.68-1.68-2.72-3.276-3.592-5.517-.657-1.69-1.44-4.23-1.653-8.91-.23-5.06-.276-6.58-.276-19.398s.046-14.33.276-19.39c.214-4.68.996-7.22 1.653-8.912.87-2.24 1.912-3.84 3.592-5.52 1.68-1.68 3.28-2.72 5.52-3.592 1.692-.66 4.233-1.44 8.913-1.655 4.428-.2 6.144-.26 15.09-.27zm29.928 7.97a5.76 5.76 0 105.76 5.758c0-3.18-2.58-5.76-5.76-5.76zm-25.622 6.73c-13.613 0-24.65 11.037-24.65 24.65 0 13.613 11.037 24.645 24.65 24.645C78.616 89.645 89.65 78.613 89.65 65S78.615 40.35 65.002 40.35zm0 8.65c8.836 0 16 7.163 16 16 0 8.836-7.164 16-16 16-8.837 0-16-7.164-16-16 0-8.837 7.163-16 16-16z" fill="#fff"/>
+            </svg>
+        </a>
+        <!-- LinkedIn Logo SVG -->
+        <a href="https://www.linkedin.com/in/noah-naranjo/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="linkedin">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="#597E52"/>
+            </svg>
+    </div>
+</footer>
+</body>
+</html>
