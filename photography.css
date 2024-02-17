@@ -47,8 +47,8 @@ header {
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-    grid-auto-rows: 250px; /* Adjust this value based on your preference */
+    gap: 20px;
+    grid-auto-rows: 270px; /* Adjust this value based on your preference */
 }
 
 
@@ -118,6 +118,55 @@ nav a::after {
 
 nav a:hover::after {
     transform: scaleX(1); /* Scale to full width on hover */
+}
+
+/* Gallery and Cover Image */
+.photo-item {
+    position: relative;
+    cursor: pointer; /* Indicates the image can be clicked */
+}
+
+.cover-image {
+    width: 100%; /* Ensure the cover image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the area of the photo-item without distorting */
+}
+
+/* Full-Resolution Photo Album */
+.photo-album {
+    display: none; /* Hidden by default */
+    position: fixed; /* Overlay the whole page */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background */
+    z-index: 1000; /* Ensure it's on top of other content */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    overflow-y: auto; /* Enable scrolling for taller images */
+}
+
+.photo-album img {
+    max-width: 90%; /* Limit the width to avoid overflowing the viewport */
+    max-height: 80vh; /* Limit the height to avoid overflowing the viewport */
+    margin: 20px; /* Add some space around the image */
+    object-fit: contain; /* Show the full image without cropping */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: add shadow for depth */
+}
+
+/* Additional styles for better usability */
+body.overflow-hidden {
+    overflow: hidden; /* Prevent scrolling when photo album is open */
+}
+
+.close-btn {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
 }
 
 /* Footer */
