@@ -48,7 +48,7 @@ header {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    grid-auto-rows: auto; /* Adjust this value based on your preference */
+    grid-auto-rows: 270px; /* Adjust this value based on your preference */
 }
 
 
