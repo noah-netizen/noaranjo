@@ -37,16 +37,18 @@ header {
     padding: 20px 50px; /* Top and bottom padding + Left and right margins */
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 20px; /* Gap between photos */
+.photo-item img {
+    width: 100%; /* Fill the width of the container */
+    height: auto; /* Keep the original aspect ratio */
+    display: block;
+    object-fit: cover; /* Adjust this as needed */
 }
 
-.photo-item img {
-    width: 100%; /* Make the image fill the container */
-    height: auto; /* Maintain aspect ratio */
-    display: block;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    grid-auto-rows: 250px; /* Adjust this value based on your preference */
 }
 
 
