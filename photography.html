@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>     
     <link rel="stylesheet" href="photography.css">
 </head>
 <body>
@@ -40,19 +42,68 @@
             <div class="grid">
                 <!-- Repeat this structure for each photo -->
                 <div class="photo-item">
-                    <img src="photography\DSC_1183.jpg" alt="Yellowstone Trip">
+                    <img src="portfolio photos\ynpmntn.jpg" alt="Yellowstone Trip">
                 </div>
                 <div class="photo-item">
-                    <img src="photography\DSC_0907.jpg" alt="Yellowstone Trip">
+                    <img src="portfolio photos\buffalo3.jpg" alt="Yellowstone Trip">
                 </div>
                 <div class="photo-item">
-                    <img src="photography\DSC_0908.jpg" alt="Yellowstone Trip">
+                    <img src="portfolio photos\ynpriver.jpg" alt="Yellowstone Trip">
                 </div>
                 <div class="photo-item">
-                    <img src="photography\DSC_1015.jpg" alt="Yellowstone Trip">
+                    <img src="portfolio photos\ynpmntn2.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\ynpriver2.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\ynpbird.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\buffalo2.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\butterfly.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\kingscanyon.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\teton.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\ynpbird2.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\ynpdawn.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\ynpgeese.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\ynpmidday.jpg" alt="Yellowstone Trip">
+                </div>
+                <div class="photo-item">
+                    <img src="portfolio photos\ynpmntn2_2.jpg" alt="Yellowstone Trip">
                 </div>
             </div>
         </section>
+        <script>
+            // Ensure the DOM content is fully loaded
+            document.addEventListener("DOMContentLoaded", function() {
+              var grid = document.querySelector('.grid');
+              // Initialize imagesLoaded
+              imagesLoaded( grid, function() {
+                // Initialize Masonry after all images have loaded
+                var msnry = new Masonry( grid, {
+                  itemSelector: '.photo-item',
+                  columnWidth: '.photo-item',
+                  percentPosition: true,
+                  gutter: 20
+                });
+              });
+            });
+          </script>          
     </main>
     <script> // JavaScript for the logo animation
         function blinkAnimation() { 
