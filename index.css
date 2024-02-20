@@ -168,7 +168,6 @@ canvas {
 footer {
     padding: 10px;
     text-align: right; /* Aligns the content to the right */
-    background-color: #FFFFEC; /* Example background color */
     position: fixed;
     left: 0;
     bottom: 0;
