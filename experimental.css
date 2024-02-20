@@ -4,8 +4,9 @@ h1 {
     font-weight: 700;
     margin: 80px 0 50px 0;
     padding: 0;
-    color:#C6A969;
+    color:#FFDF22;
     text-align: center;
+    text-shadow: thistle 3px 3px 3px;
 }
 
 h2, h3, p, ul {
@@ -19,11 +20,12 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Inter', sans-serif;
-    background-image: url('spacebckgrnd.jpg');
+    background-image: url('experimental/spacebckgrnd.jpg');
+    cursor: url('gifs/force.gif'), auto;
 }
 
 header {
-    background-image: url('spacebckgrnd.jpg');
+    background-image: url('experimental/spacebckgrnd.jpg');
     color: #597E52;
     display: flex;
     justify-content: space-between;
@@ -74,7 +76,7 @@ nav li {
 }
 
 nav a {
-    color: #C6A969;
+    color: #FFDF22;
     text-decoration: none;
     font-size: 1.2vw;
     position: relative;
@@ -88,7 +90,7 @@ nav a::after {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #C6A969;
+    background-color: #FFDF22;
     left: 0;
     bottom: -5px;
     transform: scaleX(0); /* Start with the element scaled to 0 */
@@ -103,8 +105,11 @@ nav a:hover::after {
 /* Hero section */
 .project-row {
     display: flex;
-    margin-bottom: 50px; /* Space between project rows */
+    margin: 55px; /* Space between project rows */
     align-items: center; /* Align items vertically */
+    border: 2px solid aqua;
+    padding: 20px;
+    box-shadow: 10px 0px 20px rgba(255, 255, 255, 0.5);
 }
 
 .project-photo, .project-description {
@@ -172,11 +177,16 @@ nav a:hover::after {
 footer {
     padding: 10px;
     text-align: right; /* Aligns the content to the right */
-    background-image: url('spacebckgrnd.jpg');
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+footer img{
+    text-align: center;
+    width: 70px;
+    padding: 0px 20px;
 }
 
 .social-media a {
