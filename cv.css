@@ -73,7 +73,7 @@ nav a:hover::after {
 
 /* Main content */
 main {
-    padding-bottom: 80px;
+    padding-bottom: 40px;
 }
 main h1 {
     color: #C6A969; /* Header color */
@@ -120,7 +120,6 @@ main a:hover {
 footer {
     padding: 10px;
     text-align: right; /* Aligns the content to the right */
-    background-color: #FFFFEC; /* Example background color */
     position: fixed;
     left: 0;
     bottom: 0;
