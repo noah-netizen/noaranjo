@@ -1,191 +1,177 @@
-/* Reset some basic elements */
-body, h2, h3, p, ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noah's Portoflio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/granim@2.0.0/dist/granim.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -55 800 500" fill="#597E52"> <!-- Adjust viewBox as needed -->
+                <!-- Path for "n" -->
+                <a href="index.html"><circle cx="62" cy="40" r="80" class="cls-1" style="fill: #597E52"/></a>
+                <!-- Path for "k" -->
+                <path class="cls-1" d="M324.22.49c7.81,8.4,14,17.95,18.55,28.66,4.56,10.71,6.84,21.86,6.84,33.45s-2.28,22.74-6.84,33.45c-4.56,10.71-10.74,20.26-18.55,28.66-5.34,5.27-11.25,9.8-17.72,13.57-6.48,3.78-13.53,6.69-21.14,8.74s-15.37,3.08-23.24,3.08-15.62-1.03-23.24-3.08-14.66-4.96-21.14-8.74c-6.48-3.77-12.39-8.3-17.72-13.57l8.79-8.79c14.65,14.45,32.42,21.68,53.32,21.68s38.67-7.23,53.32-21.68c6.71-7.16,12-15.35,15.87-24.56,3.87-9.21,5.81-18.8,5.81-28.76s-1.92-19.51-5.76-28.66c-3.84-9.15-9.15-17.37-15.92-24.66l8.79-8.79ZM256.93,57.42l5.18,5.18-5.18,5.08v-10.25Z"/>
+                <!-- Path for second "n" -->
+                <a href="index.html"><circle cx="500" cy="40" r="80" class="cls-1" style="fill: #597E52"/></a>
+            </svg>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="about.html">about me</a></li>
+                <li><a href="web.html">web projects</a></li>
+                <li><a href="photography.html">photography</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#experimental">experimental</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="intro">
+            <h1 class="ml11">
+                <span class="text-wrapper">
+                    <span class="line line1"></span>
+                    <span class="letters">HI! I'm <span class="name">Noah</span>, new media artist from San Joaquin Valley, CA.</span>
+                </span>
+            </h1>
+        </section>        
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script> // Text animation for the intro
+    document.addEventListener("DOMContentLoaded", function() {
+    var textWrapper = document.querySelector('.ml11 .letters');
 
-body, html {
-    height: 100%; /* Ensure full height */
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #FFFFEC;
-}
-
-header {
-    background-color: #FFFFEC;
-    color: #597E52;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    height: 70px;
-}
-
-#logo {
-    flex-shrink: 0;
-    width: 18vw;
-    height: 2vw;
-}
-
-nav ul {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap; /* Allows nav items to wrap */
-    justify-content: flex-end; /* Align items to the right */
-    padding: 40px 0 0 0; /* Removes default padding */
-    font-weight: 450;
-    font-family: 'Inter', sans-serif;
-    list-style: none;
-}
-
-nav li {
-    margin: 5px 10px; /* Adds a little space around each nav item */
-}
-
-/* SECTION FOR RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-    nav a {
-        font-size: 18px; /* Smaller font size on smaller screens */
-        margin: 10px 5px; /* Adjust margin for smaller screen */
+    // Recursively wrap text nodes in spans, preserving elements like .name
+    function wrapTextWithSpans(element) {
+        Array.from(element.childNodes).forEach(child => {
+            if (child.nodeType === 3) { // Text node
+                let wrappedText = child.nodeValue.replace(/\S/g, "<span class='letter'>$&</span>");
+                let fragment = document.createRange().createContextualFragment(wrappedText);
+                child.replaceWith(fragment);
+            } else if (child.nodeType === 1) { // Element node
+                wrapTextWithSpans(child); // Recurse for element nodes
+            }
+        });
     }
-}
 
-@media (max-width: 768px) {
-    #intro p {
-        font-size: 10px; /* Reduce font size on smaller screens */
+    wrapTextWithSpans(textWrapper);
+
+    anime.timeline({loop: false})
+    .add({
+        targets: '.ml11 .line',
+        scaleY: [0,1],
+        opacity: [0.5,1],
+        easing: "easeOutExpo",
+        duration: 700
+    })
+    .add({
+        targets: '.ml11 .line',
+        translateX: [0, textWrapper.getBoundingClientRect().width + 10],
+        easing: "easeOutExpo",
+        duration: 1500,
+        delay: 0
+    })
+    .add({
+        targets: '.ml11 .letter',
+        opacity: [0,1],
+        easing: "easeOutQuint",
+        duration: 1000,
+        offset: '-=1500', // Start this animation 1500ms earlier
+        delay: (el, i) => 15.5 * (i + 1) // Adjust the delay as necessary
+    })
+    .add({
+        targets: '.ml11',
+        opacity: 1,
+        duration: 1000,
+        easing: "easeOutQuint",
+        delay: 0
+    })
+
+    // hide the line after animation
+    .add({ // hide line
+        targets: '.ml11 .line',
+        opacity: 0,
+        duration: 500, // Adjust duration as needed
+        easing: "easeInOutExpo",
+        offset: '-=1600', // Start this animation 1500ms earlier
+    })
+
+    .add({ // show line
+        targets: '.ml11 .line',
+        opacity: 1,
+        duration: 300,
+        easing: "easeInOutExpo",
+        delay: 0,
+        offset: '-=1000'
+    })
+
+    .add({ // hide line
+        targets: '.ml11 .line',
+        opacity: 0,
+        duration: 100, // Adjust duration as needed
+        easing: "easeInOutExpo",
+    });
+});
+</script>
+<script>
+    function blinkAnimation() { 
+        anime({
+            targets: ['#logo circle:nth-child(1)', '#logo circle:nth-child(3)'],
+            opacity: [
+                {value: 0, duration: 400},
+                {value: 1, duration: 400}
+            ],
+            easing: 'linear',
+            delay: function(el, i) { return i * 250; }, // Offset delay for a more natural blink
+            complete: function(anim) {
+                // Wait for 3 seconds (3000 milliseconds) before starting the next animation loop
+                setTimeout(blinkAnimation, 4000);
+            }
+        });
     }
-}
 
-@media (max-width: 480px) {
-    #intro p {
-        font-size: 10px; /* Even smaller font size for very small screens */
-    }
-}
-
-nav a {
-    color: #597E52;
-    text-decoration: none;
-    font-size: 1.2vw;
-    position: relative;
-    font-style: italic;
-    margin: 20px;
-    overflow: hidden;
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #C6A969;
-    left: 0;
-    bottom: -5px;
-    transform: scaleX(0); /* Start with the element scaled to 0 */
-    transform-origin: left center; /* Scale from the left */
-    transition: transform 0.2s ease-out; /* Transition effect for the transform */
-}
-
-nav a:hover::after {
-    transform: scaleX(1); /* Scale to full width on hover */
-}
-
-#intro p {
-    color: #C6A969;
-    font-size: 6vw;
-    font-weight: 700;
-    z-index: 1;
-    position: relative;
-    text-align: center;
-    padding: 200px 100px;
-}
-
-#intro {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 50vh; /* Full height */
-    text-align: center;
-    padding: 0 20px; /* Add padding to prevent text touching the edges */
-}
-
-#name {
-    color: #597E52;
-}
-
-/* Fullscreen canvas */
-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Ensure canvas stays in the background */
-}
-
-/* Animation */
-.ml11 {
-    font-weight: 700;
-    font-size: 3.3vw; /* Adjust this value as needed */
-    color: #C6A969; /* Use your preferred text color */
-  }
-
-.ml11 .letters .name {
-    color: #597E52; /* Your chosen shade of green */
-    font-size: 3.3vw;
-}
-  
-.ml11 .text-wrapper {
-    position: relative;
-    display: inline-block;
-    padding-top: 0.1em;
-    padding-right: 0.05em;
-    padding-bottom: 0.15em;
-  }
-  
-.ml11 .line {
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    height: 100%;
-    width: 3px;
-    background-color: #C6A969; /* Use your preferred line color */
-    transform-origin: 0 50%;
-  }
-  
-.ml11 .line1 { 
-    top: 0; 
-    left: 0;
-  }
-  
-.ml11 .letters {
-    display: inline-block;
-    line-height: 1em;
-  }
-
-/* Footer */
-footer {
-    padding: 10px;
-    text-align: right; /* Aligns the content to the right */
-    background-color: #FFFFEC; /* Example background color */
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
-
-.social-media a {
-    display: inline-block;
-    margin-right: 20px; /* Adjusts the right padding */
-}
-
-.social-media svg {
-    height: 70px; /* Adjust the size of the logo */
-    width: auto;
-}
-
-#linkedin {
-    height: 47px;
-    padding: 0 60px 12px 0;
-}
+    document.addEventListener("DOMContentLoaded", function() {
+        blinkAnimation(); // Call the blinkAnimation function
+        // Spinning animation for the 2nd path
+        anime({
+            targets: '#logo path.cls-1:nth-child(2)',
+            rotate: '1turn',
+            duration: 2000,
+            loop: false,
+            easing: 'easeInOutBack',
+        });
+    });
+</script>
+<footer>
+    <div class="social-media">
+        <!-- Instagram Logo SVG -->
+        <a href="https://www.instagram.com/the_real_boah" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="50" width="50" viewBox="-19.5036 -32.49725 169.0312 194.9835">
+                <defs>
+                    <radialGradient fy="578.088" fx="158.429" gradientTransform="matrix(0 -1.98198 1.8439 0 -1031.399 454.004)" gradientUnits="userSpaceOnUse" xlink:href="#a" r="65" cy="578.088" cx="158.429" id="c"/>
+                    <radialGradient fy="473.455" fx="147.694" gradientTransform="matrix(.17394 .86872 -3.5818 .71718 1648.351 -458.493)" gradientUnits="userSpaceOnUse" xlink:href="#b" r="65" cy="473.455" cx="147.694" id="d"/>
+                    <linearGradient id="b"><stop stop-color="#C6A969" offset="0"/><stop offset=".128" stop-color="#C6A969"/><stop stop-opacity="0" stop-color="#C6A969" offset="1"/></linearGradient>
+                    <linearGradient id="a"><stop stop-color="#C6A969" offset="0"/><stop stop-color="#C6A969" offset=".1"/><stop stop-color="#C6A969" offset=".5"/><stop stop-color="#597E52" offset="1"/></linearGradient>
+                </defs>
+                <path d="M65.033 0C37.891 0 29.953.028 28.41.156c-5.57.463-9.036 1.34-12.812 3.22-2.91 1.445-5.205 3.12-7.47 5.468-4.125 4.282-6.625 9.55-7.53 15.812-.44 3.04-.568 3.66-.594 19.188-.01 5.176 0 11.988 0 21.125 0 27.12.03 35.05.16 36.59.45 5.42 1.3 8.83 3.1 12.56 3.44 7.14 10.01 12.5 17.75 14.5 2.68.69 5.64 1.07 9.44 1.25 1.61.07 18.02.12 34.44.12 16.42 0 32.84-.02 34.41-.1 4.4-.207 6.955-.55 9.78-1.28a27.22 27.22 0 0017.75-14.53c1.765-3.64 2.66-7.18 3.065-12.317.088-1.12.125-18.977.125-36.81 0-17.836-.04-35.66-.128-36.78-.41-5.22-1.305-8.73-3.127-12.44-1.495-3.037-3.155-5.305-5.565-7.624-4.3-4.108-9.56-6.608-15.829-7.512C102.338.157 101.733.027 86.193 0z" fill="url(#c)"/>
+                <path d="M65.033 0C37.891 0 29.953.028 28.41.156c-5.57.463-9.036 1.34-12.812 3.22-2.91 1.445-5.205 3.12-7.47 5.468-4.125 4.282-6.625 9.55-7.53 15.812-.44 3.04-.568 3.66-.594 19.188-.01 5.176 0 11.988 0 21.125 0 27.12.03 35.05.16 36.59.45 5.42 1.3 8.83 3.1 12.56 3.44 7.14 10.01 12.5 17.75 14.5 2.68.69 5.64 1.07 9.44 1.25 1.61.07 18.02.12 34.44.12 16.42 0 32.84-.02 34.41-.1 4.4-.207 6.955-.55 9.78-1.28a27.22 27.22 0 0017.75-14.53c1.765-3.64 2.66-7.18 3.065-12.317.088-1.12.125-18.977.125-36.81 0-17.836-.04-35.66-.128-36.78-.41-5.22-1.305-8.73-3.127-12.44-1.495-3.037-3.155-5.305-5.565-7.624-4.3-4.108-9.56-6.608-15.829-7.512C102.338.157 101.733.027 86.193 0z" fill="url(#d)"/>
+                <path d="M65.003 17c-13.036 0-14.672.057-19.792.29-5.11.234-8.598 1.043-11.65 2.23-3.157 1.226-5.835 2.866-8.503 5.535-2.67 2.668-4.31 5.346-5.54 8.502-1.19 3.053-2 6.542-2.23 11.65C17.06 50.327 17 51.964 17 65s.058 14.667.29 19.787c.235 5.11 1.044 8.598 2.23 11.65 1.227 3.157 2.867 5.835 5.536 8.503 2.667 2.67 5.345 4.314 8.5 5.54 3.054 1.187 6.543 1.996 11.652 2.23 5.12.233 6.755.29 19.79.29 13.037 0 14.668-.057 19.788-.29 5.11-.234 8.602-1.043 11.656-2.23 3.156-1.226 5.83-2.87 8.497-5.54 2.67-2.668 4.31-5.346 5.54-8.502 1.18-3.053 1.99-6.542 2.23-11.65.23-5.12.29-6.752.29-19.788 0-13.036-.06-14.672-.29-19.792-.24-5.11-1.05-8.598-2.23-11.65-1.23-3.157-2.87-5.835-5.54-8.503-2.67-2.67-5.34-4.31-8.5-5.535-3.06-1.187-6.55-1.996-11.66-2.23-5.12-.233-6.75-.29-19.79-.29zm-4.306 8.65c1.278-.002 2.704 0 4.306 0 12.816 0 14.335.046 19.396.276 4.68.214 7.22.996 8.912 1.653 2.24.87 3.837 1.91 5.516 3.59 1.68 1.68 2.72 3.28 3.592 5.52.657 1.69 1.44 4.23 1.653 8.91.23 5.06.28 6.58.28 19.39s-.05 14.33-.28 19.39c-.214 4.68-.996 7.22-1.653 8.91-.87 2.24-1.912 3.835-3.592 5.514-1.68 1.68-3.275 2.72-5.516 3.59-1.69.66-4.232 1.44-8.912 1.654-5.06.23-6.58.28-19.396.28-12.817 0-14.336-.05-19.396-.28-4.68-.216-7.22-.998-8.913-1.655-2.24-.87-3.84-1.91-5.52-3.59-1.68-1.68-2.72-3.276-3.592-5.517-.657-1.69-1.44-4.23-1.653-8.91-.23-5.06-.276-6.58-.276-19.398s.046-14.33.276-19.39c.214-4.68.996-7.22 1.653-8.912.87-2.24 1.912-3.84 3.592-5.52 1.68-1.68 3.28-2.72 5.52-3.592 1.692-.66 4.233-1.44 8.913-1.655 4.428-.2 6.144-.26 15.09-.27zm29.928 7.97a5.76 5.76 0 105.76 5.758c0-3.18-2.58-5.76-5.76-5.76zm-25.622 6.73c-13.613 0-24.65 11.037-24.65 24.65 0 13.613 11.037 24.645 24.65 24.645C78.616 89.645 89.65 78.613 89.65 65S78.615 40.35 65.002 40.35zm0 8.65c8.836 0 16 7.163 16 16 0 8.836-7.164 16-16 16-8.837 0-16-7.164-16-16 0-8.837 7.163-16 16-16z" fill="#fff"/>
+            </svg>
+        </a>
+        <!-- LinkedIn Logo SVG -->
+        <a href="https://www.linkedin.com/in/noah-naranjo/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="linkedin">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill="#597E52"/>
+            </svg>
+    </div>
+</footer>
+</body>
+</html>
