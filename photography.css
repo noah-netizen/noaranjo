@@ -17,7 +17,7 @@ ul {
 body, html {
     height: 100%; /* Ensure full height */
     margin: 0;
-    padding: 0;
+    padding-bottom: 40px;
     font-family: 'Inter', sans-serif;
     background-color: #FFFFEC;
     box-sizing: border-box;
@@ -48,7 +48,7 @@ header {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    grid-auto-rows: 200px; /* Adjust this value based on your preference */
+    grid-auto-rows: 150px; /* Adjust this value based on your preference */
 }
 
 
@@ -71,26 +71,6 @@ nav ul {
 
 nav li {
     margin: 5px 10px; /* Adds a little space around each nav item */
-}
-
-/* SECTION FOR RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-    nav a {
-        font-size: 18px; /* Smaller font size on smaller screens */
-        margin: 10px 5px; /* Adjust margin for smaller screen */
-    }
-}
-
-@media (max-width: 768px) {
-    #intro p {
-        font-size: 10px; /* Reduce font size on smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    #intro p {
-        font-size: 10px; /* Even smaller font size for very small screens */
-    }
 }
 
 nav a {
@@ -173,7 +153,6 @@ body.overflow-hidden {
 footer {
     padding: 10px;
     text-align: right; /* Aligns the content to the right */
-    background-color: #FFFFEC; /* Example background color */
     position: fixed;
     left: 0;
     bottom: 0;
@@ -191,6 +170,6 @@ footer {
 }
 
 #linkedin {
-    height: 47px;
+    height: 50px;
     padding: 0 60px 12px 0;
 }
